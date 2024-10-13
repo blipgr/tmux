@@ -23,38 +23,25 @@ fi
 echo "Создание файла ~/.tmux.conf..."
 cat <<EOL > ~/.tmux.conf
 set -g default-terminal "screen-256color"
-
 # Изменение индексов
 set -g base-index 1
 setw -g pane-base-index 1
-
 # Настройки прокрутки через Alt + PageUp и Alt + PageDown
 bind -n M-PageUp copy-mode -u \; send-keys PageUp
 bind -n M-PageDown send-keys PageDown
-
-unbind r
-bind r source-file ~/.tmux.conf
-
 set -g mouse on
-set-window-option -g mode-keys vi
-
-unbind -T copy-mode-vi MouseDragEnd1Pane
-
 # Плагины
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
-set -g @plugin 'christoomey/vim-tmux-navigator'
 set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'tmux-plugins/tmux-continuum'
 set -g @plugin 'tmux-plugins/tmux-sessionist'
-set -g @plugin 'blipgr/tmux'  # Ваш форк с nordtheme/tmux
+set -g @plugin 'nordtheme/tmux'
 set -g @plugin 'nhdaly/tmux-better-mouse-mode'
 
-set -g @resurrect-capture-pane-contents 'on'
-set -g @continuum-restore 'on'
-
-# Старт менеджера плагинов
+# Старт менеджера плагинов11
 run '~/.tmux/plugins/tpm/tpm'
+
 EOL
 
 # Перезагрузка конфигурации tmux, если он уже запущен
