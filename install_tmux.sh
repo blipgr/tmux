@@ -5,7 +5,7 @@ set -e
 
 # Обновление списка пакетов и установка tmux
 echo "Установка tmux..."
-sudo apt update && sudo apt install -y tmux git
+#sudo apt update && sudo apt install -y tmux git
 
 # Создание директории для плагинов
 echo "Создание директории для плагинов TPM..."
