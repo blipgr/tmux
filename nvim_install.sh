@@ -5,7 +5,7 @@ set -e
 echo 'export EDITOR=vim' >> ~/.bashrc
 source ~/.bashrc
 
-
+sudo apt-get install -y npm
 
 # Шаг 6: Установка необходимых пакетов
 echo "Установка ripgrep и npm..."
