@@ -1,6 +1,6 @@
 #!/bin/bash
 # Остановка выполнения скрипта при любой ошибке
-set -e
+#set -e
 # Установка Neovim как редактора по умолчанию
 echo 'export EDITOR=vim' >> ~/.bashrc
 source ~/.bashrc
