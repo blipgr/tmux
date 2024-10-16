@@ -1,5 +1,6 @@
 #!/bin/bash
-
+# Остановка выполнения скрипта при любой ошибке
+set -e
 # Установка Neovim как редактора по умолчанию
 echo 'export EDITOR=vim' >> ~/.bashrc
 source ~/.bashrc
@@ -41,7 +42,7 @@ fi
 
 # Шаг 3: Скачивание и установка Neovim версии 0.9.4
 echo "Скачивание и установка Neovim..."
-wget https://github.com/neovim/neovim/releases/download/v0.9.4/nvim.appimage
+wget --no-check-certificate https://github.com/neovim/neovim/releases/download/v0.9.4/nvim.appimage
 chmod u+x nvim.appimage
 sudo mv nvim.appimage /usr/local/bin/nvim
 
