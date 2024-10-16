@@ -22,24 +22,26 @@ fi
 # Создание файла .tmux.conf с текущей конфигурацией
 echo "Создание файла ~/.tmux.conf..."
 cat <<EOL > ~/.tmux.conf
-set -g default-terminal "screen-256color"
-# Изменение индексов
-set -g base-index 1
-setw -g pane-base-index 1
-# Настройки прокрутки через Alt + PageUp и Alt + PageDown
-bind -n M-PageUp copy-mode -u \; send-keys PageUp
-bind -n M-PageDown send-keys PageDown
-set -g mouse on
-# Плагины
-set -g @plugin 'tmux-plugins/tpm'
-set -g @plugin 'tmux-plugins/tmux-sensible'
-set -g @plugin 'tmux-plugins/tmux-resurrect'
-set -g @plugin 'tmux-plugins/tmux-continuum'
-set -g @plugin 'tmux-plugins/tmux-sessionist'
-set -g @plugin 'nordtheme/tmux'
-set -g @plugin 'nhdaly/tmux-better-mouse-mode'
-
-# Старт менеджера плагинов11
+set -g default-terminal "screen-256color"  
+# Изменение индексов  
+set -g base-index 1  
+setw -g pane-base-index 1  
+# Настройки прокрутки через Alt + PageUp и Alt + PageDown  
+bind -n M-PageUp copy-mode -u \; send-keys PageUp  
+bind -n M-PageDown send-keys PageDown  
+set -g mouse on  
+set-option -g set-clipboard off  
+set-window-option -g mode-keys vi  
+# Плагины  
+set -g @plugin 'tmux-plugins/tpm'  
+set -g @plugin 'tmux-plugins/tmux-sensible'  
+set -g @plugin 'christoomey/vim-tmux-navigator'  
+set -g @plugin 'tmux-plugins/tmux-resurrect'  
+set -g @plugin 'tmux-plugins/tmux-continuum'  
+set -g @plugin 'tmux-plugins/tmux-sessionist'  
+set -g @plugin 'nordtheme/tmux'  
+set -g @plugin 'nhdaly/tmux-better-mouse-mode'  
+# Старт менеджера плагинов11  
 run '~/.tmux/plugins/tpm/tpm'
 
 EOL
