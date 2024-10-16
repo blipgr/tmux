@@ -19,6 +19,26 @@ bash-it enable alias apt
 bash-it enable completion git
 bash-it enable alias systemd
 
+# Шаг 6: Установка необходимых пакетов
+echo "Установка ripgrep и npm..."
+sudo apt-get update
+sudo apt-get install -y ripgrep npm
+
+# Установка Tree-sitter CLI через npm
+npm install -g tree-sitter-cli
+
+# Шаг 7: Установка дополнительных пакетов для ble.sh
+echo "Установка дополнительных пакетов для ble.sh..."
+sudo apt install -y git make gawk
+
+# Установка ble.sh
+echo "Установка ble.sh..."
+git clone --recursive --depth 1 --shallow-submodules https://github.com/akinomyoga/ble.sh.git
+make -C ble.sh install PREFIX=~/.local
+echo 'source ~/.local/share/blesh/ble.sh' >> ~/.bashrc
+source ~/.bashrc
+
+
 # Шаг 2: Резервное копирование текущей конфигурации Neovim (если существует)
 echo "Резервное копирование текущей конфигурации Neovim..."
 if [ -d "$HOME/.config/nvim" ]; then
@@ -69,23 +89,6 @@ nvim +PackerSync
 echo "Установка LSP и Treesitter..."
 nvim --headless +LspInstall +TSInstall +qall
 
-# Шаг 6: Установка необходимых пакетов
-echo "Установка ripgrep и npm..."
-sudo apt-get update
-sudo apt-get install -y ripgrep npm
-
-# Установка Tree-sitter CLI через npm
-npm install -g tree-sitter-cli
-
-# Шаг 7: Установка дополнительных пакетов для ble.sh
-echo "Установка дополнительных пакетов для ble.sh..."
-sudo apt install -y git make gawk
-
-# Установка ble.sh
-echo "Установка ble.sh..."
-git clone --recursive --depth 1 --shallow-submodules https://github.com/akinomyoga/ble.sh.git
-make -C ble.sh install PREFIX=~/.local
-echo 'source ~/.local/share/blesh/ble.sh' >> ~/.bashrc
 source ~/.bashrc
 
 echo "Установка завершена!"
