@@ -51,5 +51,6 @@ fi
 
 echo "Пользовательские настройки созданы и файл user_config.lua готов."
 
+nvim +PackerSync
 
 echo "Установка завершена!"
