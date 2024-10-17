@@ -52,7 +52,7 @@ rm -rf ~/.cache/nvim
 
 git clone --depth 1 https://github.com/AstroNvim/template ~/.config/nvim
 rm -rf ~/.config/nvim/.git
-nvim
+
 # Создание нового файла пользовательских настроек для AstroNvim
 CONFIG_DIR="$HOME/.config/nvim/lua"
 USER_CONFIG_FILE="$CONFIG_DIR/user_config.lua"
@@ -106,5 +106,5 @@ fi
 
 echo "Пользовательские настройки созданы и файл user_config.lua готов."
 
-
+nvim
 echo "Установка завершена!"
